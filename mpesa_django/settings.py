@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+from decouple import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -123,9 +123,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# M-PESA Configuration
-MPESA_CONSUMER_KEY = 'hOtZQ3cGCubZK2mHgZMYGgYzfmbHK0G3ugKwWuyVxa2hVZMi'
-MPESA_CONSUMER_SECRET = 'lZi03uIAQOhbAqaO9NrYHdNH2Qygm3YxKHGylCdehedPNlxXNjAJdJlhxy0dxHQd'
-MPESA_SHORTCODE = '5686427'
-MPESA_PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
-MPESA_CALLBACK_URL = 'https://e031-154-159-252-104.ngrok-free.app/payments/callback/'
+MPESA_CONSUMER_KEY = config('MPESA_CONSUMER_KEY')
+MPESA_CONSUMER_SECRET = config('MPESA_CONSUMER_SECRET')
+MPESA_SHORTCODE = config('MPESA_SHORTCODE')
+MPESA_PASSKEY = config('MPESA_PASSKEY')
+MPESA_CALLBACK_URL = config('MPESA_CALLBACK_URL')
